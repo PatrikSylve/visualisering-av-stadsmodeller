@@ -144,11 +144,9 @@ function createValueList(options, selectedAttribute) {
         el.id = opt;
         el.value = "#fffff1";
         el.type = "Color";
-        console.log(1)
         el.onchange = function () {
             attributeCol(opt, el.value, selectedAttribute)
         }
-        console.log(2);
         td1.appendChild(text);
         td2.appendChild(el);
         tr.appendChild(td1);
@@ -159,7 +157,6 @@ function createValueList(options, selectedAttribute) {
 }
 
 function attributeCol(val, c, selectedAttribute) {
-    console.log(val)
     var color = c;
     var attribute = selectedAttribute;
     var value = val;
@@ -195,7 +192,7 @@ function attributeCol(val, c, selectedAttribute) {
             currentMesh.material.color.setHex(color);
         }
         catch (error) {
-            console.log("hej", error);
+            console.log(error);
         }
     }
     renderer.render(scene, camera);
@@ -292,7 +289,7 @@ function saveVersioned() {
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
-    var select = document.getElementById('selectSaveForm');
+    let select = document.getElementById('selectSaveForm');
     select.innerHTML = '';
     let option = document.createElement('option');
     option.textContent = "Select a file";
